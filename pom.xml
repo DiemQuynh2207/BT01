@@ -12,7 +12,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.13.0</version> 
+					<version>3.13.0</version>
 					<configuration>
 						<!-- put your configurations here -->
 						<source>22</source>
@@ -40,13 +40,31 @@
 			<version>8.0.33</version>
 		</dependency>
 
+		<!--
+		https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
 		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>javax.servlet-api</artifactId>
-		    <version>4.0.1</version>
-		    <scope>provided</scope>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.sitemesh/sitemesh -->
+		<dependency>
+			<groupId>org.sitemesh</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>3.0.2</version>
+		</dependency>
 		<dependency>
 
 			<groupId>jakarta.servlet</groupId>
@@ -55,11 +73,11 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-	        <groupId>jakarta.servlet.jsp</groupId>	
-	        <artifactId>jakarta.servlet.jsp-api</artifactId>
-	        <version>3.0.0</version> 
-	        <scope>provided</scope>
-    	</dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>jakarta.mail</groupId>
@@ -73,7 +91,7 @@
 			<artifactId>jakarta.activation-api</artifactId>
 			<version>2.1.3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.eclipse.angus</groupId>
 			<artifactId>jakarta.mail</artifactId>
