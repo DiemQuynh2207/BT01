@@ -5,7 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import vn.iostar.models.UserModel;
+
 import java.io.IOException;
+
 
 @WebServlet(urlPatterns = "/home")
 public class HomePageController extends HttpServlet {
@@ -24,7 +28,21 @@ public class HomePageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
+
+		boolean ok = false;
+		HttpSession session = req.getSession(false);
+		if (session != null && session.getAttribute("usermodel") != null) {
+			UserModel user = (UserModel) session.getAttribute("usermodel");
+			session.setAttribute("nameLogin", user.getFullname());
+
+			System.out.println(req.getSession());
+				
+			ok = true;
+		}
 		req.getRequestDispatcher("/views/web/home.jsp").forward(req, resp);
+		if (!ok) {
+			return;
+		}
 	}
 
 	/**

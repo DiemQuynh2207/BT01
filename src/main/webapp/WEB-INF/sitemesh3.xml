@@ -3,6 +3,7 @@
 <mapping path="/user/*" name="user" decorator="user.jsp"/>
 <mapping path="/*" name="web" decorator="web.jsp"/>
 <mapping path="/manager/*" name="manager" decorator="admin.jsp"/>
+<mapping path="/login" name="login" webapp="login.jsp"/>
 <!-- Exclude path from decoration. -->
 <mapping path="/api*" exclude="true"/>
 </sitemesh>

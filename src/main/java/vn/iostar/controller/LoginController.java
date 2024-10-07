@@ -12,6 +12,8 @@ import vn.iostar.service.IUserService;
 
 import java.io.IOException;
 
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
+
 
 
 @SuppressWarnings("serial")
@@ -53,6 +55,7 @@ public class LoginController extends HttpServlet {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+		System.out.println(12);
 		String username = req.getParameter("username");
 		String password = req.getParameter("pword");
 		boolean isRememberMe = false;
@@ -81,15 +84,16 @@ public class LoginController extends HttpServlet {
 			System.out.println("User "+username+" login to web, role: "+user.getRole());
 			
 			if (user.getRole().equals("MEMBER"))
-				resp.sendRedirect(req.getContextPath() + "/user");
+				resp.sendRedirect(req.getContextPath() + "/home");
 			else if (user.getRole().equals("MANAGER"))
-				resp.sendRedirect(req.getContextPath() + "/manager");
+				resp.sendRedirect(req.getContextPath() + "/home");
 		} else {
 			System.out.println("login fail for user: "+username);
 			errorMsg = "Tài khoản hoặc mật khẩu không đúng";
 			req.setAttribute("color", "red");
 			req.setAttribute("error", errorMsg); 
 			req.setAttribute("type", "Login"); 
+			System.out.println("khong dang nhap duoc");
 			req.getRequestDispatcher("login.jsp").forward(req, resp);
 			
 		}
